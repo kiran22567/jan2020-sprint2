@@ -1,0 +1,94 @@
+@mixin for-all-vendor($property, $value) {
+  -webkit-#{$property}: $value;
+  -ms-#{$property}: $value;
+  #{$property}: $value;
+}
+
+@mixin sliderHandle {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4vmin;
+  height: 4vmin;
+  border-radius: 50%;
+  background: #222222;
+  cursor: pointer;
+}
+
+.Setting {
+  font-family: "Inconsolata", monospace;
+  width: 100%;
+
+  .MuiExpansionPanelDetails-root {
+    display: flex;
+    flex-direction: column;
+    font-size: 4vmin;
+    padding: 0px 24px 20px;
+  }
+
+  .MuiPaper-root {
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+  }
+}
+
+#title {
+  text-align: center;
+  font-size: 5vmin;
+
+  #github-logo {
+    display: inline-block;
+    width: 3vmin;
+    height: 3vmin;
+    margin: 0 0.2ch 0;
+  }
+}
+
+#expand-icon {
+  height: 2vmin;
+}
+
+#set-radixes {
+  display: flex;
+  align-items: center;
+  margin-top: 2vmin;
+
+  #radix-buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  button {
+    width: calc(20px + 1.2vw);
+    height: calc(20px + 1.2vw);
+    font-size: calc(13px + 0.5vw);
+    margin: 0.5vmin;
+    font-family: "Inconsolata", monospace;
+    background-size: 100%;
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    outline: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+input {
+  all: unset;
+  text-decoration: underline gray;
+  margin: 0 0.5ch 0;
+  text-align: center;
+  // hide arrow
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    @include for-all-vendor(appearance, none);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
